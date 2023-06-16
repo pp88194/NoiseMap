@@ -11,7 +11,7 @@ public class NoiseTileMap : MonoBehaviour
 
     private void Start()
     {
-        Texture2D randomNoiseMap = Utils.GetRandomNoiseMap(mapSize, 5);
+        Texture2D randomNoiseMap = Utils.GetRandomNoiseMap(Random.Range(0, 10000), Random.Range(0, 10000), mapSize, 5);
         Texture2D maskMap = Utils.GetCircularMaskMap(mapSize);
         Texture2D texture = Utils.GetMaskingMap(mapSize, randomNoiseMap, maskMap);
         for (int i = 0; i < mapSize; ++i)

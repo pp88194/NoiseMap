@@ -16,7 +16,7 @@ public class NoiseMap : MonoBehaviour
 
     private void Start()
     {
-        Texture2D randomNoiseMap = Utils.GetRandomNoiseMap(MAP_SIZE, NOISE_SIZE);
+        Texture2D randomNoiseMap = Utils.GetRandomNoiseMap(Random.Range(0, 10000), Random.Range(0, 10000), MAP_SIZE, NOISE_SIZE);
         Texture2D maskMap = Utils.GetCircularMaskMap(MAP_SIZE);
         Sprite sprite = Sprite.Create(Utils.GetMaskingMap(MAP_SIZE, randomNoiseMap, maskMap), Rect.MinMaxRect(0,0, MAP_SIZE, MAP_SIZE), new Vector2(0.5f, 0.5f));
         m_spriteRenderer.sprite = sprite;

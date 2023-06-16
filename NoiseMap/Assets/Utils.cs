@@ -4,7 +4,7 @@ using UnityEngine;
 
 public static class Utils
 {
-    public static Texture2D GetRandomNoiseMap(int mapSize, float noiseSize)
+    public static Texture2D GetRandomNoiseMap(int origX, int origY, int mapSize, float noiseSize)
     {
         Texture2D texture = new Texture2D(mapSize, mapSize);
         texture = new Texture2D(mapSize, mapSize);
@@ -13,7 +13,7 @@ public static class Utils
         {
             for (int j = 0; j < mapSize; ++j)
             {
-                float perlinNoise = Mathf.PerlinNoise((float)j / mapSize * noiseSize, (float)i / mapSize * noiseSize);
+                float perlinNoise = Mathf.PerlinNoise(origX + (float)j / mapSize * noiseSize, origY + (float)i / mapSize * noiseSize);
                 Color color = Color.white * perlinNoise;
                 color.a = 1;
                 colorMap[i * mapSize + j] = color;
